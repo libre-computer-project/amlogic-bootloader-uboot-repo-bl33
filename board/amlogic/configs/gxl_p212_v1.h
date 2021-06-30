@@ -116,7 +116,7 @@
         "sdc_burning=sdc_burn ${sdcburncfg}\0"\
         "wipe_data=successful\0"\
         "wipe_cache=successful\0"\
-        "EnableSelinux=enforcing\0"\
+        "EnableSelinux=permissive\0"\
         "recovery_part=recovery\0"\
         "recovery_offset=0\0"\
         "cvbs_drv=0\0"\
@@ -187,9 +187,9 @@
             "fi;"\
             "if test ${avb2} = 0; then "\
                 "if test ${active_slot} = _a; then "\
-                    "setenv bootargs ${bootargs} root=/dev/mmcblk0p23;"\
+                    "setenv bootargs ${bootargs} root=/dev/mmcblk1p23;"\
                 "else if test ${active_slot} = _b; then "\
-                    "setenv bootargs ${bootargs} root=/dev/mmcblk0p24;"\
+                    "setenv bootargs ${bootargs} root=/dev/mmcblk1p24;"\
                 "fi;fi;"\
             "fi;"\
             "if imgread kernel ${boot_part} ${loadaddr}; then bootm ${loadaddr}; fi;"\
@@ -377,7 +377,7 @@
 /* support for mtd */
 //#define CONFIG_AML_MTD 1
 /* support for nftl */
-#define CONFIG_AML_NAND	1
+//#define CONFIG_AML_NAND	1
 
 #if defined(CONFIG_AML_NAND) && defined(CONFIG_AML_MTD)
 #error CONFIG_AML_NAND/CONFIG_AML_MTD can not support at the sametime;
@@ -416,7 +416,7 @@
 	#define CONFIG_GENERIC_MMC 1
 	#define CONFIG_CMD_MMC 1
 	#define CONFIG_CMD_GPT 1
-	#define	CONFIG_SYS_MMC_ENV_DEV 1
+	#define	CONFIG_SYS_MMC_ENV_DEV 0
 	#define CONFIG_EMMC_DDR52_EN 0
 	#define CONFIG_EMMC_DDR52_CLK 35000000
     /*
@@ -479,7 +479,7 @@
 
 //UBOOT fastboot config
 #define CONFIG_CMD_FASTBOOT 1
-#define CONFIG_FASTBOOT_FLASH_MMC_DEV 1
+#define CONFIG_FASTBOOT_FLASH_MMC_DEV 0
 #ifdef CONFIG_AML_MTD
 #define CONFIG_FASTBOOT_FLASH_NAND_DEV 1
 #endif

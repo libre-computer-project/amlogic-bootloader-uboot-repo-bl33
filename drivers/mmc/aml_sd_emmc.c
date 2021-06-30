@@ -1058,5 +1058,5 @@ bool aml_is_emmc_tsd (struct mmc *mmc) // is eMMC OR TSD
 {
     struct aml_card_sd_info * sdio=mmc->priv;
 
-    return ((sdio->sd_emmc_port == SDIO_PORT_C));
+    return ((sdio->sd_emmc_port == SDIO_PORT_C || sdio->sd_emmc_port == SDIO_PORT_B));
 }

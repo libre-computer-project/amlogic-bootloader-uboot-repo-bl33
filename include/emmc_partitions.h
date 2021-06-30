@@ -113,8 +113,8 @@
 #define DTB_SIZE			(DTB_BLK_CNT * DTB_BLK_SIZE)
 #define DTB_COPIES			(2)
 #define DTB_AREA_BLK_CNT	(DTB_BLK_CNT * DTB_COPIES)
-#define EMMC_DTB_DEV		(1)
-#define EMMC_FASTBOOT_CONTEXT_DEV         (1)
+#define EMMC_DTB_DEV		(0)
+#define EMMC_FASTBOOT_CONTEXT_DEV         (0)
 
 #define MMC_FASTBOOT_CONTEXT_NAME     "fastboot_context"
 #define FASTBOOT_CONTEXT_OFFSET  (SZ_1M * 5)

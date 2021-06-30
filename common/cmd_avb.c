@@ -115,15 +115,15 @@ static AvbIOResult get_unique_guid_for_partition(AvbOps* ops, const char* partit
     if (!memcmp(partition, "system", strlen("system"))) {
         if (strcmp(s1, "_a") == 0) {
             ret = get_partition_num_by_name("system_a");
-            sprintf(part_name, "/dev/mmcblk0p%d", ret+1);
+            sprintf(part_name, "/dev/mmcblk1p%d", ret+1);
             strncpy(guid_buf, part_name, guid_buf_size);
         } else if (strcmp(s1, "_b") == 0) {
             ret = get_partition_num_by_name("system_b");
-            sprintf(part_name, "/dev/mmcblk0p%d", ret+1);
+            sprintf(part_name, "/dev/mmcblk1p%d", ret+1);
             strncpy(guid_buf, part_name, guid_buf_size);
         } else {
             ret = get_partition_num_by_name("system");
-            sprintf(part_name, "/dev/mmcblk0p%d", ret+1);
+            sprintf(part_name, "/dev/mmcblk1p%d", ret+1);
             strncpy(guid_buf, part_name, guid_buf_size);
         }
     } else if (!memcmp(partition, "vbmeta", strlen("vbmeta")))

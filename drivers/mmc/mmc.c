@@ -1980,7 +1980,7 @@ int mmc_ffu_op(int dev, u64 ffu_ver, void *addr, u64 cnt)
 int get_boot_size(char *name, uint64_t* size)
 {
 	int ret = 0;
-	struct mmc *mmc = find_mmc_device(1);
+	struct mmc *mmc = find_mmc_device(0);
 
 	/* do nothing */
 	if (!name)

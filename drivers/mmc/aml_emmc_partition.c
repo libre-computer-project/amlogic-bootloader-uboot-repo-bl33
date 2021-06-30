@@ -77,7 +77,7 @@
 */
 
 /* virtual partitions which are in "reserved" */
-#define MAX_MMC_VIRTUAL_PART_CNT	(5)
+#define MAX_MMC_VIRTUAL_PART_CNT	(32)
 
 
 /* BinaryLayout of partition table stored in rsv area */
@@ -335,7 +335,7 @@ static int _calculate_offset(struct mmc *mmc, struct _iptbl *itbl, u32 bottom)
 	if (!strcmp(part->name, "bootloader")) {
 		gap = MMC_BOOT_PARTITION_RESERVED;
 		if (!is_mainstorage_emmc())
-			sprintf(part->name, "bootloadere");
+			sprintf(part->name, "bootloader");
 	}
 	for (i=1; i<itbl->count; i++) {
 		/**/
@@ -1382,14 +1382,14 @@ int find_dev_num_by_partition_name (char *name)
 	int dev = -1;
 
 	/* card */
-	if (!strcmp(name, MMC_CARD_PARTITION_NAME)) {
-		dev = 0;
-    } else { /* eMMC OR TSD */
+	//if (!strcmp(name, MMC_CARD_PARTITION_NAME)) {
+	//	dev = 0;
+    //} else { /* eMMC OR TSD */
 		/* partition name is valid */
 		if (find_mmc_partition_by_name(name)) {
-			dev = 1;
+			dev = 0;
 		}
-	}
+	//}
 	return dev;
 }
 
